@@ -1,28 +1,33 @@
-﻿int[] number = { 4, 35, 12, 5, 8};
-int target = 8;
-int foundIndex = -1;
+﻿int[] number = { 2, 8, 1, 9, 1, 2 };
+bool found = false;
+int duplicate1 = 0;
+int duplicate2 = 0;
 
 for (int i = 0; i < number.Length; i++)
 {
-    if (number[i] == target)
+    for (int j = i + 1; j < number.Length; j++)
     {
-        foundIndex = i;
+        if (number[i] == number[j])
+        {
+            duplicate1 = number[i];
+            duplicate2 = number[j];
+            found = true;
+            break;
+        }
+    }
+}
+
+Console.WriteLine($"Найдено дубликатов: {duplicate1} и {duplicate2}");
+
+int foundNumber = -1;
+
+for (int i = 1; i <= 100; i++)
+{
+    if (i % 2 == 0 && i % 3 == 0)
+    {
+        foundNumber = i;
         break;
     }
 }
 
-Console.WriteLine($"Число найдено, индекс: {foundIndex}");
-
-int[] Number = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, };
-int sum = 0;
-
-foreach (int number in Number)
-{
-    if (number % 2 != 0)
-    {
-        continue;
-    }
-    sum += number;
-}
-
-Console.WriteLine($"Сумма чётных чисел: {sum}");
+Console.WriteLine($"Первое число кратное 2 и 3: {foundNumber}");
