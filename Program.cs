@@ -1,36 +1,28 @@
-﻿using System.ComponentModel;
+﻿int[] number = { 4, 35, 12, 5, 8};
+int target = 8;
+int foundIndex = -1;
 
-int[] pointsPerLab = { 8, -1, 10, 9, -1, 7 };
-int sum = 0;
-int count = 0;
-
-foreach (int points in pointsPerLab)
+for (int i = 0; i < number.Length; i++)
 {
-    if (points < 0)
+    if (number[i] == target)
+    {
+        foundIndex = i;
+        break;
+    }
+}
+
+Console.WriteLine($"Число найдено, индекс: {foundIndex}");
+
+int[] Number = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, };
+int sum = 0;
+
+foreach (int number in Number)
+{
+    if (number % 2 != 0)
     {
         continue;
     }
-    sum += points;
-    count++;
+    sum += number;
 }
 
-Console.WriteLine($"Сумма баллов за сданные работы: {sum}");
-Console.WriteLine($"Количество сданных работ: {count}");
-
-int[] groupIds = { 101, 104, 107, 104, 110 };
-bool hasDupcicates = false;
-
-for (int i = 0; i < groupIds.Length; i++)
-{
-    for (int j = i + 1; j < groupIds.Length; j++)
-    {
-        if (groupIds[i] == groupIds[j])
-        {
-            hasDupcicates = true;
-            Console.WriteLine($"Найденные дубликаты: {groupIds[i]} и {groupIds[j]}");
-            break;
-        }
-    }
-}
-
-Console.WriteLine(hasDupcicates ? "Есть повторяющиеся номера" : "Все номера уникальны");
+Console.WriteLine($"Сумма чётных чисел: {sum}");
